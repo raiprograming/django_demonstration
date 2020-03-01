@@ -1,19 +1,22 @@
+"""my_portfolio_project URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
 from django.contrib import admin
-from django.urls import path
-from my_portfolio_app import views
-
-app_name="my_portfolio_app"
-
+from django.urls import path,include
+ 
 urlpatterns = [
-
-path('my_first_url',views.my_first_view,name='my_first'),
-
-path('',views.my_home,name='home'),
-path('details',views.my_details,name="details"),
-path('images',views.my_images,name="image"),
-path('contact',views.my_contact,name="contact"),
-path('contact_form_submit',views.contact_form_submit,name="contact_form_submit"),
-path('records',views.my_records,name="show_data"),
-path('data',views.one_data,name="one_data"),
-path('data_process',views.send_record,name="one_record")
+   path('admin/', admin.site.urls),
+   path('', include('my_portfolio_app.urls')),
 ]
